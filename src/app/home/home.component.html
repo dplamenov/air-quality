@@ -1,0 +1,40 @@
+<h1 class="welcome-message">See <span class="bold">AirQuality</span> Index in Real Time</h1>
+
+<div class="d-flex justify-content-center h-100">
+    <div class="searchbar">
+        <input class="search_input" type="text" name="" placeholder="Search..." (input)="searchHandler($event.target.value)" #search>
+        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        <div class="search-result" *ngIf="searchResult">
+            <div class="search-item" *ngFor="let result of searchResult.data" (click)="chooseStationHandler(result.uid); search.value = ''">
+                <p>{{result.station.name}}</p>
+                <p>AQI: <span [style.color]="result.aqi | aqiToColor">{{result.aqi}}</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="station-data" *ngIf="selectedStation">
+    <h1 [style.color]="selectedStation.data.aqi | aqiToColor">{{selectedStation.data.city.name}}</h1>
+    <span class="current-value">AQI: {{selectedStation.data.aqi}}</span>
+    <span class="current-value" *ngIf="selectedStation.data.iaqi.pm25">PM2.5: {{selectedStation.data.iaqi.pm25.v}}</span>
+    <span class="current-value" *ngIf="selectedStation.data.iaqi.pm10">PM10: {{selectedStation.data.iaqi.pm10.v}}</span>
+
+    <div class="forecast-container">
+        <h2>Forecast</h2>
+        <div style="border: 1px solid rgba(0, 0, 0, .1)" class="forecast" *ngFor="let forecast of selectedStation.data.forecast.daily.pm10.slice(0, 3); let i = index;">
+            <p>{{forecast.day | date}}</p>
+            <span>PM2.5: {{selectedStation.data.forecast.daily.pm25.slice(2)[i].avg}}</span>
+            <span>PM10: {{forecast.avg}}</span>
+        </div>
+    </div>
+
+    <div class="legend">
+        <h2>Legend</h2>
+        <p style="background-color: rgb(82, 185, 71);">Good</p>
+        <p style="background-color: rgb(243, 246, 25);">Moderate</p>
+        <p style="background-color: rgb(245, 126, 32);">Unhealthy for Sensitive Groups</p>
+        <p style="background-color: rgb(237, 29, 36);">Unhealthy</p>
+        <p style="background-color: rgb(126, 43, 125)">Very Unhealthy</p>
+        <p style="background-color: rgb(72, 13, 39);">Hazardous</p>
+    </div>
+</div>

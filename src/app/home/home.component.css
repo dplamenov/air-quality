@@ -1,0 +1,156 @@
+body {
+    background-image: url('../../assets/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-size: cover;
+}
+
+.welcome-message {
+    text-align: center;
+    margin-top: 10%;
+    color: white;
+    font-family: 'Roboto';
+    font-weight: 100;
+    font-size: 3rem;
+}
+
+.bold {
+    font-weight: 500;
+    font-size: 3.5rem;
+}
+
+.searchbar {
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.search_input {
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color: transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover>.search_input {
+    padding: 0 10px;
+    width: 450px;
+    caret-color: blue;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover>.search_icon {
+    background: white;
+    color: blue;
+}
+
+.search_icon {
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+}
+
+.search-result {
+    width: 100%;
+    margin-top: 10px;
+    z-index: 6999;
+    position: relative;
+}
+
+.search-item {
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    padding: 10px;
+}
+
+.search-item:hover {
+    background-color: lightblue;
+}
+
+.search-item p {
+    margin: 0;
+}
+
+.station-data {
+    margin: 50px 10%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 5px 10px 8px #888888;
+    /* opacity: 0.1; */
+}
+
+.forecast-container {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.forecast {
+    width: 30%;
+    display: inline-grid;
+    height: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    text-align: left;
+}
+
+.legend {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.legend p {
+    width: 15%;
+    display: inline-block;
+    padding: 15px;
+    border-radius: 10px;
+    margin-left: 20px;
+    color: white;
+}
+
+.current-value {
+    margin-right: 30px;
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 1920px) {
+    body {
+        background-attachment: fixed;
+    }
+    .welcome-message {
+        margin: 100px 10px 50px;
+    }
+    .searchbar:hover>.search_input {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .forecast {
+        display: table-row;
+    }
+    span.current-value {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .legend p {
+        width: 100%;
+        display: list-item;
+        margin-left: 0;
+    }
+}
