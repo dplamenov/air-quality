@@ -128,6 +128,15 @@ body {
     font-size: 16px;
 }
 
+.last-station {
+    background-color: red;
+    position: absolute;
+    padding: 20px;
+    border-radius: 8px;
+    right: 1%;
+    top: 5%;
+}
+
 @media only screen and (max-width: 1920px) {
     body {
         background-attachment: fixed;

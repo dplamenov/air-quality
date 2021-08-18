@@ -8,6 +8,7 @@ export class LocalStorageService {
   constructor() { }
 
   setItem(key, value) {
+    this.storage.removeItem(key);
     this.storage.setItem(key, value);
     return value;
   }
