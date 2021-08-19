@@ -1,6 +1,8 @@
 <div class="last-station" *ngIf='lastStation'>
-    <p>Name</p>
-    <p>AQI: 24</p>
+    <h3>Last station</h3>
+    <p>Name: {{lastStation.city.name}}</p>
+    <p>AQI: {{lastStation.aqi}}</p>
+    <!-- <p>{{lastStation.c | json}}</p> -->
 </div>
 
 <h1 class="welcome-message">See <span class="bold">AirQuality</span> Index in Real Time</h1>

@@ -12,12 +12,22 @@ export class HomeComponent implements OnInit {
 
   searchResult;
   selectedStation;
+  lastStationId;
   lastStation;
 
   constructor(private dataService: DataService, private localStoreage: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.lastStation = this.localStoreage.getItem('last-station');
+    this.lastStationId = this.localStoreage.getItem('last-station');
+
+    if (this.lastStationId) {
+      this.dataService.station(this.lastStationId).subscribe(station => {
+        this.lastStation = station.data;
+
+      });
+
+
+    }
   }
 
   searchHandler(keyword) {

@@ -22,7 +22,7 @@ export class DataService {
     return this.http.get(`https://api.waqi.info/feed/@${station}/?token=${this.token}`)
       .pipe(tap((result: { data: { idx: number } }) => {
         this.localStoreage.setItem('last-station', result.data.idx);
-        console.log(result.data.idx);
+        console.log(result.data);
       }));
   }
 }
