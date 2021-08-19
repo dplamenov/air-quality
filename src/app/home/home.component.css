@@ -44,11 +44,13 @@ body {
     width: 450px;
     caret-color: blue;
     transition: width 0.4s linear;
+    text-decoration: none;
 }
 
 .searchbar:hover>.search_icon {
     background: white;
     color: blue;
+    text-decoration: none;
 }
 
 .search_icon {
