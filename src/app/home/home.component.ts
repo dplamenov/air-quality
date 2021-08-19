@@ -23,9 +23,7 @@ export class HomeComponent implements OnInit {
     if (this.lastStationId) {
       this.dataService.station(this.lastStationId).subscribe(station => {
         this.lastStation = station.data;
-
       });
-
 
     }
   }
@@ -39,8 +37,10 @@ export class HomeComponent implements OnInit {
   chooseStationHandler(stationId) {
     this.searchResult = null;
     this.dataService.station(stationId).subscribe(data => {
-      console.log(data);
       this.selectedStation = data;
+      this.lastStation = data.data;
+
+
     });
   }
 }
