@@ -1,5 +1,3 @@
-[AirQuality](http://air.sharkdev.eu)
-
 # AirQuality
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
